@@ -1,13 +1,13 @@
-FROM node:17-alpine
-WORKDIR "/app/frontend"
+FROM node:16-alpine
+WORKDIR "/app"
 
-# necessario descomentar quando clonar projeto do react
-# COPY package.json .
+COPY . .
+RUN npm install 
+RUN npm run build
+# # RUN npm install react-scripts@3.3.1 -g --silent
 
-# RUN npm install
+# # COPY . .
 
-# COPY . .
-
-EXPOSE 3000
-# mesmo caso mencionado acima
-# CMD ["npm", "start"]
+# EXPOSE 3000
+# # mesmo caso mencionado acima
+ENTRYPOINT npm start
