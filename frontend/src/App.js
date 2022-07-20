@@ -19,7 +19,9 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar/>
+      <div className='navbar'>
+        <Navbar/>
+      </div>
     </div>
   );
 }
