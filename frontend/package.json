@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "-": "0.0.1",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
@@ -20,8 +19,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   }
 }
