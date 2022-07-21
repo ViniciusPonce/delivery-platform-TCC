@@ -4,6 +4,8 @@ import api from "./services/api";
 
 import Navbar from './components/Navbar';
 
+import  'bootstrap/dist/css/bootstrap.min.css' ;
+
 function App() {
 
   const [user, setUser] = useState();

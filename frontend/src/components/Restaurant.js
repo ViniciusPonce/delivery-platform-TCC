@@ -8,7 +8,7 @@ const Restaurant = () => {
   return (
     <>
         <Button 
-        className= 'button'
+        className= 'navbar-brand'
         variant = 'Text' 
         style={{color: '#6B6B6B'}}
         onClick={() => console.log('Aqui é o Restaurante')}>

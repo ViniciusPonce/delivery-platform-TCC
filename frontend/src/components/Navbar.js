@@ -15,13 +15,13 @@ import CreateAccount from './CreateAccount'
 
 const  Navbar = ()=> {
   return (
-  <AppBar position='static' enableColorOnDark>
-      <Toolbar style={{background: '#F2F2F2'}}>
+  <AppBar className = "navbar navbar-expand-lg bg-light" position='static' enableColorOnDark>
+      <Toolbar className='container-fluid'>
         <IconButton edge = 'start'>
           <DeliveryDiningIcon/>
         </IconButton>
-        <Typography variant="h6" style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de delivery</Typography>
-        <div className='space'>
+        <Typography className='navbar-brand' style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de Delivery</Typography>
+        <div className='container-fluid'>
           <Stack direction='row' spacing={2}>
             <Restaurant/>
             <Convenience/>
