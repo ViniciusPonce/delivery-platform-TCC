@@ -23,7 +23,7 @@ const CreateAccount = () => {
 
     return (
         <>
-        <Button variant="light" onClick={handleShow}>
+        <Button variant="link" onClick={handleShow} style={{boxShadow: 'none'}}>
             Criar Conta      
         </Button>
 
