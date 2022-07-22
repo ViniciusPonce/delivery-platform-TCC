@@ -7,10 +7,10 @@ const Login = () => {
     return (
         <>
             <Button 
-            className = 'button'
-            variant = 'contained' 
-            style={{background: '#347B98'}}
-            onClick = {() => {console.log('Usuário entrou')}}>
+                className = 'button'
+                variant = 'contained' 
+                style={{background: '#347B98'}}
+                onClick = {() => {console.log('Usuário entrou')}}>
                 Entrar
             </Button>
         </>
