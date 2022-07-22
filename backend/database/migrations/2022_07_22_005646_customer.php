@@ -16,10 +16,12 @@ class Customer extends Migration
         Schema::create('customer', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->date('birthday');
             $table->string('cpf');
             $table->string('phone');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'email',
+        'password',
         'birthday',
         'cpf',
         'phone'
@@ -37,6 +38,17 @@ class Customer extends Model
         'birthday' => 'date',
         'cpf' => 'string',
         'phone' => 'string',
+
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -49,6 +61,7 @@ class Customer extends Model
         'email' => 'required',
         'birthday' => 'required',
         'cpf' => 'required|max:11',
-        'phone' => 'required|max:11'
+        'phone' => 'required|max:11',
+        'password' => 'required|max:16'
     ];
 }
