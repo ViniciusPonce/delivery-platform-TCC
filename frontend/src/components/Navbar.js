@@ -1,41 +1,54 @@
-import React from 'react';
-import {
-  AppBar,Toolbar,Typography,IconButton, Stack 
-  } 
+import {IconButton, Typography} 
   from '@mui/material'
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining'
+import React from 'react'
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 import Restaurant from './Restaurant'
 import Convenience from './Convenience'
 import Marketplace from './Marketplace'
 import Login from './Login'
-
-import '../styles/ButtonText.css'
 import CreateAccount from './CreateAccount'
 
-
-const  Navbar = ()=> {
+const Navbar1 = ()=> {
   return (
-  <AppBar className = "navbar navbar-expand-lg bg-light" position='static' enableColorOnDark>
-      <Toolbar className='container-fluid'>
-        <IconButton edge = 'start'>
-          <DeliveryDiningIcon/>
-        </IconButton>
-        <Typography className='navbar-brand' style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de Delivery</Typography>
-        <div className='container-fluid'>
-          <Stack direction='row' spacing={2}>
-            <Restaurant/>
-            <Convenience/>
-            <Marketplace/>
-          </Stack>
-        </div>
-        <Stack direction='row' spacing={2}>
-          <Login/>
-          <CreateAccount/>
-        </Stack>
-      </Toolbar>
-    </AppBar>
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand href="#" style={{flexDirection:'row'}}>
+          <IconButton edge = 'start'>
+            <DeliveryDiningIcon/>
+          </IconButton>
+          <Typography className='navbar-brand' style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de Delivery</Typography>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link href="restaurant">
+              <Restaurant/>
+            </Nav.Link>
+            <Nav.Link href="convenience">
+              <Convenience/>
+            </Nav.Link>
+            <Nav.Link href="marketplace">
+              <Marketplace/>
+            </Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <Login/>
+            <CreateAccount/>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 
-export default Navbar
+export default Navbar1

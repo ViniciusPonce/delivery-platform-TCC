@@ -29,57 +29,21 @@ const CreateAccount = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Falta pouco</Modal.Title>
+          {/* <Modal.Subtitle>Preencha com seus dados para criar uma conta</Modal.Subtitle> */}
         </Modal.Header>
         <RegistrationData/>        
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cancelar
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Continuar
           </Button>
         </Modal.Footer>
       </Modal>
-            {/* <Button 
-            className = 'button' 
-            variant = 'Text'
-            style = {{color:'#347B98'}}
-            onClick={handleOpen}>
-                Criar Conta
-            </Button>
-            
-            <Modal
-            className = ''
-            open = {open}
-            onClose = {handleClose}
-            >
-                <Box sx = {style.Box}>
-                    <Typography  style={style.Label}>
-                        Falta pouco
-                    </Typography>
-                    <Typography sx = {{mt:2}}>
-                        Preencha com seus dados para criar uma conta                    
-                    </Typography>
-                    <RegistrationData/>
-                </Box>
-            </Modal> */}
         </>
     )
 }
-
-// const style = {
-//     Box : {
-//     position: 'absolute',
-//     top: '50%',
-//     left: '50%',
-//     transform: 'translate(-50%, -50%)',
-//     width: 400,
-//     bgcolor: 'background.paper',
-//     border: '2px solid #000',
-//     boxShadow: 24,
-//     p: 4,
-//     }, 
-//   }
 
 export default CreateAccount
