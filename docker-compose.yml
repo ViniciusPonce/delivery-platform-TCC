@@ -31,7 +31,7 @@ services:
             - './backend:/var/www/html'
         environment:
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=deliverytcc
+            - MYSQL_DATABASE=deliveryApp
             - MYSQL_USER=delivery
             - MYSQL_PASSWORD=delivery
         ports:
