@@ -3,7 +3,6 @@ import {IconButton, Typography}
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining'
 import React from 'react'
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -29,22 +28,23 @@ const Navbar1 = ()=> {
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
-            navbarScroll
           >
-            <Nav.Link href="restaurant">
+            <Nav.Link>
               <Restaurant/>
             </Nav.Link>
-            <Nav.Link href="convenience">
+            <Nav.Link>
               <Convenience/>
             </Nav.Link>
-            <Nav.Link href="marketplace">
+            <Nav.Link >
               <Marketplace/>
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
-            <Login/>
-            <CreateAccount/>
-          </Form>
+          <Nav>
+            <Nav.Link>
+              <Login/>
+              <CreateAccount/>
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

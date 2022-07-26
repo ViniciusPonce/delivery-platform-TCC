@@ -1,17 +1,15 @@
-import React from 'react';
-import Button from '@mui/material/Button'
-
-import '../styles/ButtonText.css'
+import React from "react";
+import Button from "react-bootstrap/Button";
 
 const Convenience = () => {
     return (
         <>
             <Button 
-                className= 'button'
-                variant = 'Text' 
-                style={{color: '#6B6B6B'}}
-                onClick={() => {console.log('Aqui é a Conveniência')}}>
-                Conveniência
+            variant="light" 
+            style={{boxShadow: "none", color: "#6B6B6B"}}
+            onClick={() => console.log("Aqui é a Conveniência")}
+            >
+                Conveniência 
             </Button>
         </>
     )

@@ -1,18 +1,17 @@
-import React from 'react';
-import Button from '@mui/material/Button'
-
-import '../styles/ButtonText.css'
+import React from "react";
+import Button from "react-bootstrap/Button";
 
 const Restaurant = () => {
   return (
     <>
         <Button 
-          className= 'navbar-brand'
-          variant = 'Text' 
-          style={{color: '#6B6B6B'}}
-          onClick={() => console.log('Aqui é o Restaurante')}>
-          Restaurante
+          variant="light" 
+          style={{boxShadow: "none", color: "#6B6B6B"}}
+          onClick={() => console.log("Aqui é o Restaurante")}
+          >
+            Restaurante    
         </Button>
+
     </>
   )
 }

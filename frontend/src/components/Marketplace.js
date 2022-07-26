@@ -1,17 +1,16 @@
-import React from 'react';
-import { Button } from "@mui/material"
-import '../styles/ButtonText.css'
+import React from "react";
+import Button from "react-bootstrap/Button";
 
 const Marketplace = () => {
     return (
         <>
-            <Button 
-                className= 'button'
-                variant = 'Text' 
-                style={{color: '#6B6B6B'}}
-                onClick={() => {console.log('Aqui é o Mercado')}}>
-                Mercado
-            </Button>
+        <Button 
+          variant="light" 
+          style={{boxShadow: "none", color: "#6B6B6B"}}
+          onClick={() => console.log("Aqui é o Supermercado")}
+          >
+            Mercado    
+        </Button>
         </>
     )
 }

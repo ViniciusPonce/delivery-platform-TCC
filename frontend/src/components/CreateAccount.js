@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react'
 
 import RegistrationData from './RegistrationData'
 
-import '../styles/ButtonText.css'
-
-const CreateAccount = ({email, nameLastName, cpf, birthDate, phone}) => {
+const CreateAccount = () => {
 
     const [show, setShow] = useState(false);
 
@@ -16,7 +13,10 @@ const CreateAccount = ({email, nameLastName, cpf, birthDate, phone}) => {
 
     return (
         <>
-        <Button variant="link" onClick={handleShow} style={{boxShadow: 'none'}}>
+        <Button 
+          variant="link" 
+          onClick={handleShow} 
+          style={{boxShadow: 'none'}}>
             Criar Conta      
         </Button>
 
@@ -24,15 +24,9 @@ const CreateAccount = ({email, nameLastName, cpf, birthDate, phone}) => {
         <Modal.Header closeButton>
           <Modal.Title>Falta pouco</Modal.Title>
         </Modal.Header>
-        <RegistrationData/>        
-        <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-            Cancelar
-          </Button>
-          <Button variant="primary">
-            Continuar
-          </Button>
-        </Modal.Footer>
+        <Modal.Body>
+          <RegistrationData/> 
+        </Modal.Body>   
       </Modal>
         </>
     )
