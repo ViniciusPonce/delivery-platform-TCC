@@ -18,15 +18,13 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::group([
-    'middleware' => [
+Route::group(['middleware' => [
         'api',
         'cors'
-    ],
+    ], 
+    'prefix' => 'customer'
 ], function ($routes) {
 
-    Route::get('/user', function (Request $request) {
-        return 'teste';
-    });
+    Route::post('/register', 'CustomerController@create');
 
 });

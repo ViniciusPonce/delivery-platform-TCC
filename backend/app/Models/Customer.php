@@ -11,7 +11,7 @@ class Customer extends Model
 
     public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'updated_at';
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -62,6 +62,6 @@ class Customer extends Model
         'birthday' => 'required',
         'cpf' => 'required|max:11',
         'phone' => 'required|max:11',
-        'password' => 'required|max:16'
+        'password' => 'max:16'
     ];
 }
