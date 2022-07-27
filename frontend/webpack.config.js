@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const dotenv = require('dotenv').config({ path: __dirname + '/.env.development' })
+const isDevelopment = process.env.NODE_ENV !== 'production'
 
 const config = {
     entry: './src/index.js',
@@ -42,7 +45,12 @@ const config = {
                 htmlWebpackPlugin
             }) => '<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>' + htmlWebpackPlugin.options.title + '</title></head><body><div id=\"app\"></div></body></html>',
             filename: 'index.html',
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(dotenv.parsed),
+            'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
+        }),
+        new NodePolyfillPlugin(),
     ],
     devServer: {
         static: {
