@@ -25,6 +25,19 @@ Route::group(['middleware' => [
     'prefix' => 'customer'
 ], function ($routes) {
 
+    Route::get('/{id}', 'CustomerController@view');
     Route::post('/register', 'CustomerController@create');
+
+});
+
+Route::group(['middleware' => [
+    'api',
+    'cors'
+], 
+'prefix' => 'customerAddress'
+], function ($routes) {
+
+Route::get('/create/{id}', 'CustomerAddressController@create');
+
 
 });
