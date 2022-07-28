@@ -16,10 +16,13 @@ class CustomerAddress extends Migration
         Schema::create('customer_address', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained('customer');
-            $table->integer('cep');
+            $table->string('cep');
             $table->string('street');
             $table->integer('number');
             $table->string('district');
+            $table->string('city');
+            $table->string('state');
+            $table->string('main_address');
             $table->timestamps();
         });
     }
