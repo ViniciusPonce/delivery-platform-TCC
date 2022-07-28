@@ -37,7 +37,7 @@ Route::group(['middleware' => [
 'prefix' => 'customerAddress'
 ], function ($routes) {
 
-Route::get('/create/{id}', 'CustomerAddressController@create');
+Route::post('/create/{id}', 'CustomerAddressController@create');
 
 
 });
