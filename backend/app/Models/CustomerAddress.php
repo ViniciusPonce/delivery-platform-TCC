@@ -22,7 +22,14 @@ class CustomerAddress extends Model
         'street',
         'number',
         'district',
+        'city',
+        'state',
         'main_address'
+    ];
+
+    protected $hidden = [
+        'updated_at',
+        'created_at'
     ];
 
     /**
@@ -37,6 +44,8 @@ class CustomerAddress extends Model
         'street' => 'string',
         'number' => 'string',
         'district' => 'string',
+        'city' => 'string',
+        'state' => 'string',
         'main_address' => 'string',
     ];
 
@@ -51,11 +60,18 @@ class CustomerAddress extends Model
         'street' => 'required',
         'number' => 'required',
         'district' => 'required',
-        'main_address' => 'required:max:1',
+        'city' => 'required',
+        'state' => 'required',
+        'main_address' => 'max:1',
     ];
 
     public function customer()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo('App\Models\Customer', 'foreign_key');
+    }
+
+    public function setCustomerId($customerId)
+    {
+        $this->customer_id = $customerId;
     }
 }
