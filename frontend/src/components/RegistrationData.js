@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IMaskInput } from 'react-imask';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal'
+// import Modal from 'react-bootstrap/Modal'
 
 const RegistrationData = () => {
 
@@ -96,11 +96,12 @@ const RegistrationData = () => {
                 mask={"(00) 0 0000-0000"}
                 />
           </Form.Group>
-          <Modal.Footer>
-            <Button variant="primary" type="submit">
+            <Button 
+              type='submit'
+              variant="primary" 
+              >
               Continuar
             </Button>
-          </Modal.Footer>
         </Form>
       </div>
     )

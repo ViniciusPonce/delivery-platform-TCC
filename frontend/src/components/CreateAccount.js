@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
 import RegistrationData from './RegistrationData'
 
 const CreateAccount = () => {
@@ -26,7 +25,9 @@ const CreateAccount = () => {
         </Modal.Header>
         <Modal.Body>
           <RegistrationData/> 
-        </Modal.Body>   
+        </Modal.Body>  
+        <Modal.Footer>
+        </Modal.Footer> 
       </Modal>
         </>
     )
