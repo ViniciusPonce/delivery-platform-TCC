@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import RegistrationData from './RegistrationData'
+// import RegistrationData from './RegistrationData'
+import Password from './Password';
 
 const CreateAccount = () => {
 
@@ -24,7 +25,8 @@ const CreateAccount = () => {
           <Modal.Title>Falta pouco</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <RegistrationData/> 
+          {/* <RegistrationData/>  */}
+          <Password/>
         </Modal.Body>  
         <Modal.Footer>
         </Modal.Footer> 
