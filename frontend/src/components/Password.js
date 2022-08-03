@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/Button';
 
 const Password = () => {
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        console.log(e)
         console.log('clicou')
     }
 
@@ -14,30 +15,28 @@ const Password = () => {
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Crie sua senha</Form.Label>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Text 
                     className="text-muted">
-                    Sua senha deve conter um
-                    tamanho máximo de 16 entre letras e números
-                    1 Letra maiúscula
-                    1 Letra minúscula
-                    Numeros entre 0 a 9
-                    Não deve conter caracteres !*@#
+                    Sua senha deve conter um tamanho máximo de 16 entre letras e números 1 Letra maiúscula 1 Letra minúscula números 
+                    entre 0 a 9 Não deve conter caracteres !*@#
                 </Form.Text>
             </Form.Group>
             <Form.Group 
                 className="mb-3" 
                 controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
                 <Form.Control 
                     type="password" 
-                    placeholder="Password" />
+                    autoComplete="off"
+                    placeholder="Digite sua Senha:" />
             </Form.Group>
             <Form.Group 
                 className="mb-3" 
-                controlId="formBasicCheckbox">
-                <Form.Check 
-                    type="checkbox" 
-                    label="Check me out" />
+                controlId="formBasicPasswordConfirm">
+                <Form.Control 
+                    type="passwordConfirm" 
+                    placeholder="Confirme sua senha:" />
             </Form.Group>
             <Button 
                 variant="primary" 
