@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
 const Password = () => {
 
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
     const handleSubmit = (e) => {
-        console.log(e)
-        console.log('clicou')
+        e.preventDefault()
+        console.log('Formulário Enviado')
+        console.log(`password:${password},\nconfirmPassWord: ${confirmPassword}`)
     }
 
     return (
@@ -28,6 +32,8 @@ const Password = () => {
                 controlId="formBasicPassword">
                 <Form.Control 
                     type="password" 
+                    value={password}
+                    onChange ={(e) => setPassword(e.target.value)}
                     autoComplete="off"
                     placeholder="Digite sua Senha:" />
             </Form.Group>
@@ -36,6 +42,9 @@ const Password = () => {
                 controlId="formBasicPasswordConfirm">
                 <Form.Control 
                     type="password" 
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    autoComplete="off"
                     placeholder="Confirme sua senha:" />
             </Form.Group>
             <Button 
