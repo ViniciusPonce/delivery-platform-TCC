@@ -35,7 +35,7 @@ const Password = () => {
                 className="mb-3" 
                 controlId="formBasicPasswordConfirm">
                 <Form.Control 
-                    type="passwordConfirm" 
+                    type="password" 
                     placeholder="Confirme sua senha:" />
             </Form.Group>
             <Button 
