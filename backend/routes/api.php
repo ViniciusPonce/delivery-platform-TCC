@@ -41,3 +41,13 @@ Route::post('/create/{id}', 'CustomerAddressController@create');
 
 
 });
+
+Route::group(['middleware' => [
+    'api',
+    'cors',
+    'tenant'
+],
+'prefix' => 'store'
+], function ($routes) {
+    Route::post('/create', 'StoreController@create');
+});

@@ -22,7 +22,10 @@ class Customer extends Model
         'email',
         'password',
         'birthday',
+        'is_seller',
         'cpf',
+        'cnpj',
+        'state_inscription',
         'phone'
     ];
 
@@ -36,7 +39,10 @@ class Customer extends Model
         'name' => 'string',
         'email' => 'string',
         'birthday' => 'date',
+        'is_seller' => 'string',
         'cpf' => 'string',
+        'cnpj' => 'string',
+        'state_inscription',
         'phone' => 'string',
 
     ];

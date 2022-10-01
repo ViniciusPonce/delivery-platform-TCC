@@ -19,7 +19,10 @@ class Customer extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->date('birthday');
+            $table->string('is_seller');
             $table->string('cpf');
+            $table->string('cnpj')->nullable();
+            $table->string('state_inscription')->nullable();
             $table->string('phone');
             $table->rememberToken();
             $table->timestamps();

@@ -2,9 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Console\Commands\CreateTenant;
 use App\Interfaces\CustomerRepositoryInterface;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 /**
  * Class CustomerRepository.
@@ -35,19 +37,43 @@ class CustomerRepository implements CustomerRepositoryInterface
      * @param Request $request
      * @return string $createdCustomer
      */
-    public function create(Request $request): string
+    public function create(Request $request, $customerSeller = false): string
     {
         $this->customer->fill($request->all());
 
         $createdCustomer = $this->customer->save();
 
-        if (!$createdCustomer) {
+        if ($createdCustomer && $customerSeller) {
+            $createdStore = $this->createStore($this->customer);
+        }
+
+        if (!$createdCustomer || $createdStore) {
             return false;
         }
 
-        $createdCustomer = "Cliente cadastrado com sucesso!";
+        $createdCustomer = 'Cadastro realizado com sucesso!';
 
         return $createdCustomer;
+    }
+
+    /**
+     * Cria um cadastro de um cliente que possui uma loja
+     * 
+     * @param Customer $customer
+     * @return string $createdCustomer
+     */
+    public function createStore(Customer $customer): string
+    {
+        $response = Artisan::call('tenant:create', [
+            'store' => $this->generateStoreId(),
+            'customer' => $customer
+        ]);
+
+        if (!$response) {
+            return false;
+        }
+
+        return $response;
     }
 
     /**
@@ -80,5 +106,15 @@ class CustomerRepository implements CustomerRepositoryInterface
         }
 
         return true;
+    }
+
+    /**
+     * Gera um codigo para ser atribuido aa loja e ao bd
+     * 
+     * @return int
+     */
+    private function generateStoreId() 
+    {
+        return random_int(100, 999999);
     }
 }
