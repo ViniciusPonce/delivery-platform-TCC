@@ -44,12 +44,12 @@ class CustomerRepository implements CustomerRepositoryInterface
         $createdCustomer = $this->customer->save();
 
         if ($createdCustomer && $customerSeller) {
-            $createdStore = $this->createStore($this->customer);
+            $this->createStore($this->customer);
         }
 
-        if (!$createdCustomer || $createdStore) {
-            return false;
-        }
+        //if (!$createdCustomer || $createdStore) {
+            //return false;
+        //}
 
         $createdCustomer = 'Cadastro realizado com sucesso!';
 

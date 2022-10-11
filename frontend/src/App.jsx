@@ -2,7 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from 'react';
 import api from "./services/api";
 
-import Navbar from './components/Navbar';
+import Navbar from './components/navigationBar/Navbar.jsx';
 
 import  'bootstrap/dist/css/bootstrap.min.css' ;
 
@@ -17,7 +17,7 @@ function App() {
         console.error("ops! ocorreu um erro" + err);
       });
   }, []);
-  console.log(user)
+  console.log('App.jsx')
 
   return (
     <div className="App">

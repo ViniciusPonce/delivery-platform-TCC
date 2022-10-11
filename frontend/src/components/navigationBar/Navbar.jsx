@@ -4,21 +4,21 @@ import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Restaurant from './Restaurant'
-import Convenience from './Convenience'
-import Marketplace from './Marketplace'
-import Login from './Login'
-import CreateAccount from './CreateAccount'
+import Restaurant from '../Restaurant'
+import Convenience from '../Convenience'
+import Marketplace from '../Marketplace'
+import Login from '../login/Login.jsx'
+import CreateAccount from '../createAccount/CreateAccount.jsx'
+import DelivexIcon from './delivEX.png'
 
-const Navbar1 = ()=> {
+
+function NavigationBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#" style={{flexDirection:'row'}}>
-          <IconButton edge = 'start'>
-            <DeliveryDiningIcon/>
-          </IconButton>
-          <Typography className='navbar-brand' style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de Delivery</Typography>
+          <img src={DelivexIcon} alt="Logo" height={'30px'}/>
+          {/* <Typography className='navbar-brand' style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de Delivery</Typography> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -48,4 +48,4 @@ const Navbar1 = ()=> {
   )
 }
 
-export default Navbar1
+export default NavigationBar

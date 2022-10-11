@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config({ path: __dirname + '/.env.development' 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 const config = {
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
@@ -29,9 +29,9 @@ const config = {
                 use: 'file-loader'
             },
             {
-                test: /\.png$/,
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 use: [{
-                    loader: 'url-loader',
+                    loader: 'file-loader',
                     options: {
                         mimetype: 'image/png'
                     }
