@@ -7,17 +7,40 @@ import Navbar from 'react-bootstrap/Navbar';
 import Restaurant from '../Restaurant'
 import Convenience from '../Convenience'
 import Marketplace from '../Marketplace'
-import Login from '../login/Login.jsx'
-import CreateAccount from '../createAccount/CreateAccount.jsx'
+import Login from '../login/ButtonLogin.jsx'
+import CreateAccount from '../register/CreateAccount.jsx'
 import DelivexIcon from './delivEX.png'
+import { useNavigate } from 'react-router-dom'
 
 
 function NavigationBar() {
+
+  const navigate = useNavigate();
+
+  const BottonActions = () => {
+    var notRenderingPaths = [
+      '/register',
+      '/login'
+    ]
+
+    var pathname = window.location.pathname;
+    var matchPath = notRenderingPaths.indexOf(pathname) != -1;
+
+    if (!matchPath) {
+      return  (
+            <Nav.Link>
+              <Login/>
+              <CreateAccount/>
+            </Nav.Link> 
+      )
+    }
+  }
+
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
+    <Navbar bg="light" variant="light" expand="lg">
+      <Container>
         <Navbar.Brand href="#" style={{flexDirection:'row'}}>
-          <img src={DelivexIcon} alt="Logo" height={'30px'}/>
+          <img src={DelivexIcon} alt="Logo" height={'30px'} onClick={() => navigate('/')}/>
           {/* <Typography className='navbar-brand' style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de Delivery</Typography> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -37,10 +60,11 @@ function NavigationBar() {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link>
+            <BottonActions/>
+            {/* <Nav.Link>
               <Login/>
               <CreateAccount/>
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

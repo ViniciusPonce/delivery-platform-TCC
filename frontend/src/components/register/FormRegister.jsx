@@ -1,27 +1,80 @@
 import React, {useState, setState} from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import {Link, Typography} from '@mui/material'
+
+import '../../styles/ButtonText.css'
 
 function FormRegister() {
-    
     const [inputs, setInputs] = useState({});
 
-    const handleChange = (event) => {
+    function handleChange(event) {
         const name = event.target.name;
         const value = event.target.value
 
         setInputs(values=> ({...values, [name]: value}))
     }
     
-    const handleSubmit = (event) => {
+    function handleSubmit(event) {
         event.preventDefault();
         console.log(inputs)
         // alert(inputs);
     }
 
+    function handleSellerCheckbox(event) {
+        console.log('aqui')
+        var checked = event.target.checked;
+        var cnpj = document.getElementById('cnpj')
+        var stateInscription = document.getElementById('stateInscription')
+
+        if (!checked) {
+            cnpj.hidden = true;
+            stateInscription.hidden = true;
+        } 
+        
+        if (checked) {
+            cnpj.hidden = false;
+            stateInscription.hidden = false;
+        }
+    }
+
+    const SellerFormGroup = () => {
+        return (
+        <>
+            <Form.Group className="mb-3" controlId="cnpj">
+            <Form.Control 
+            type="text" 
+            placeholder="CNPJ" 
+            name="cnpj"
+            value={inputs.cnpj || ""}
+            onChange={handleChange} hidden
+            />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="stateInscription">
+            <Form.Control 
+                type="text" 
+                placeholder="Inscrição Estadual" 
+                name="stateInscription"
+                value={inputs.stateInscription || ""}
+                onChange={handleChange} hidden
+            />
+            </Form.Group>
+        </>    
+        );
+    }
+
+    function teste() {
+
+    }
+
     return (
         <Form >
-            <p>Faça seu cadastro</p>
+            <Form.Group className="mb-3">
+                <Typography variant="h5" align="center" style={{color: '#6B6B6B'}}>Falta Pouco!</Typography>
+                <Typography variant="subtitle2" align="center" style={{color: '#6B6B6B'}}>Faça seu cadastro</Typography>
+            </Form.Group>
+
             <Form.Group className="mb-3" controlId="name">
             <Form.Control 
                 type="text" 
@@ -42,7 +95,7 @@ function FormRegister() {
             />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="cpf">
+            <Form.Group className="mb-3" controlId="cpf" >
             <Form.Control 
                 type="text" 
                 placeholder="CPF" 
@@ -51,6 +104,8 @@ function FormRegister() {
                 onChange={handleChange}
             />
             </Form.Group>
+
+            <SellerFormGroup controlId="sellerForm"/>
 
             <Form.Group className="mb-3" controlId="birthday">
             <Form.Control 
@@ -92,14 +147,23 @@ function FormRegister() {
             />
             </Form.Group>
 
-            {/* <Form.Group className="mb-3" controlId="sellerCheckbox">
-            <Form.Check type="checkbox" label="Sou lojista" />
-            </Form.Group> */}
+            <Form.Group className="mb-3" controlId="sellerCheckbox">
+            <Form.Check type="checkbox" label="Sou lojista" onChange={handleSellerCheckbox}/>
+            </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
-            Cadastrar
-            </Button>
+            <Form.Group align="center" className="mb-3">
+                <Button className='button' type="submit" onClick={handleSubmit}>
+                Cadastrar
+                </Button>
+            </Form.Group>
+            
+            <Typography variant="subtitle2" align="center" style={{color: '#6B6B6B'}}>
+            Já tem uma conta? 
+            <Link href="/login" underline="none"> Faça login</Link>
+            </Typography>
         </Form>
+        
+        
     )
 }
 
