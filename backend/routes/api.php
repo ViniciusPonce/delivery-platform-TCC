@@ -42,6 +42,19 @@ Route::post('/create/{id}', 'CustomerAddressController@create');
 
 });
 
+Route::group([
+
+    'middleware' => ['api','cors']
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
+
 Route::group(['middleware' => [
     'api',
     'cors',
