@@ -1,7 +1,8 @@
-import React, {useState, setState} from 'react'
+import React, {useState, setState, useEffect} from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import {Link, Typography} from '@mui/material'
+import api from '../../services/api'
 
 import '../../styles/ButtonText.css'
 
@@ -17,8 +18,20 @@ function FormRegister() {
     
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(inputs)
-        // alert(inputs);
+
+        register(inputs)
+    }
+
+    const register = async (payload) => {
+        var url = 'customer/register'
+
+        api.post(url, payload)
+        .then(function (response) {
+                console.log(response)
+            })
+        .catch((response) => {
+                // console.log(response)
+        })
     }
 
     function handleSellerCheckbox(event) {
@@ -62,10 +75,6 @@ function FormRegister() {
             </Form.Group>
         </>    
         );
-    }
-
-    function teste() {
-
     }
 
     return (

@@ -1,6 +1,4 @@
 import React from 'react'
-import {IconButton, Typography} from '@mui/material'
-import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,13 +9,21 @@ import Login from '../login/ButtonLogin.jsx'
 import CreateAccount from '../register/CreateAccount.jsx'
 import DelivexIcon from './delivEX.png'
 import { useNavigate } from 'react-router-dom'
-
+import User from '../login/User.jsx'
 
 function NavigationBar() {
-
   const navigate = useNavigate();
 
-  const BottonActions = () => {
+  const ActionButtons = () => {
+
+    if (isLogged()) {
+      return <User/>;
+    }
+
+    return renderConditions();
+  }
+
+  const renderConditions = () => {
     var notRenderingPaths = [
       '/register',
       '/login'
@@ -36,12 +42,17 @@ function NavigationBar() {
     }
   }
 
+  const isLogged = () => {
+    var userToken = localStorage.getItem('authorization');
+
+    return userToken !== null;
+  }
+
   return (
     <Navbar bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand href="#" style={{flexDirection:'row'}}>
           <img src={DelivexIcon} alt="Logo" height={'30px'} onClick={() => navigate('/')}/>
-          {/* <Typography className='navbar-brand' style={{background: '#D9D9D9', color: '#6B6B6B'}}>Plataforma de Delivery</Typography> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -59,13 +70,7 @@ function NavigationBar() {
               <Marketplace/>
             </Nav.Link>
           </Nav>
-          <Nav>
-            <BottonActions/>
-            {/* <Nav.Link>
-              <Login/>
-              <CreateAccount/>
-            </Nav.Link> */}
-          </Nav>
+          <ActionButtons/>
         </Navbar.Collapse>
       </Container>
     </Navbar>

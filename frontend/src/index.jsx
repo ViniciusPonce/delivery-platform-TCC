@@ -5,6 +5,8 @@ import App from './App.jsx';
 import reportWebVitals from './reportWebVitals';
 
 
+window.token = localStorage.getItem('authorization')
+
 const root = ReactDOM.createRoot(document.getElementById('app'));
 root.render(
   <React.StrictMode>
