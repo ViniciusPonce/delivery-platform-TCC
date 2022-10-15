@@ -176,6 +176,11 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
 
+        /**
+         * Auth Service Provider
+         */
+        PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider::class,
+
     ],
 
     /*
