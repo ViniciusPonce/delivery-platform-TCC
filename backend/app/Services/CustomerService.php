@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Interfaces\CustomerRepositoryInterface;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerService {
 
@@ -24,6 +25,8 @@ class CustomerService {
     {
         $uniqueData = $request->only(['email', 'cpf']);
         $existCustomer = $this->checkExist($uniqueData);
+
+        $this->treatsPassword($request);
 
         $customerSeller = !$existCustomer && $this->isSeller($request) ?? false;
 
@@ -53,7 +56,7 @@ class CustomerService {
     {
         $existEmail = $this->customerRepository->findByEmail($uniqueData['email']);
         $existCpf = $this->customerRepository->findByCpf($uniqueData['cpf']);
-
+        
         if ($existEmail || $existCpf) {
             throw new Exception('E-mail ou CPF ja cadastrado, verifique seus dados!', 400);
         }
@@ -76,10 +79,10 @@ class CustomerService {
     /**
      * Verifica se o cadastro é do tipo seller
      * 
-     * @param \Request $request
+     * @param Request $request
      * @return bool
      */
-    private function isSeller(Request $request): bool
+    private function isSeller(Request &$request): bool
     {
         if (!isset($request['is_seller'])) {
             $request['is_seller'] = false;
@@ -89,5 +92,16 @@ class CustomerService {
         }
 
         return true;
+    }
+
+    /**
+     * Trata o formato de senha 
+     * 
+     * @param Request $request
+     */
+    private function treatsPassword(Request &$request) 
+    {
+        unset($request['confirmPassword']);
+        $request['password'] = Hash::make($request['password']);
     }
 }

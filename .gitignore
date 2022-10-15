@@ -1,2 +1,4 @@
 backend/composer.lock
 backend/package-lock.json
+backend/public/mix-manifest.json
+backend/public/css/app.css

@@ -6,7 +6,7 @@ use App\Exceptions\ApiException;
 use App\Services\CustomerService;
 use Illuminate\Http\Request;
 
-class CustomerController extends Controller
+class StoreController extends Controller
 {
     private CustomerService $customerService;
 
